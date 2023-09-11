@@ -11,9 +11,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/bsamseth/cpp-project.svg)](http://isitmaintained.com/project/bsamseth/cpp-project "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/bsamseth/cpp-project.svg)](http://isitmaintained.com/project/bsamseth/cpp-project "Percentage of issues still open")
 
-# Boiler plate for C++ projects
-
-This is a boiler plate for C++ projects. What you get:
+# Hangman
 
 -   Sources, headers and mains separated in distinct folders
 -   Use of modern [CMake](https://cmake.org/) for much easier compiling
