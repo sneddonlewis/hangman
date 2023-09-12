@@ -2,6 +2,7 @@
 // doctest definitions. For builds with this disabled, e.g. code shipped to
 // users, this can be left out.
 #include "word.h"
+#include <cstdio>
 #include <ostream>
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #define DOCTEST_CONFIG_IMPLEMENT
@@ -16,7 +17,7 @@
 #include "example.h"
 
 void printVersionInfo() {
-  std::cout << "C++ Boiler Plate v"
+  std::cout << "Hangman"
             << PROJECT_VERSION_MAJOR
             << "."
             << PROJECT_VERSION_MINOR
@@ -26,22 +27,21 @@ void printVersionInfo() {
             << PROJECT_VERSION_TWEAK
             << std::endl;
   std::system("cat ../LICENSE");
-  // Bring in the dummy class from the example source,
-  // just to show that it is accessible from main.cpp.
-  //Dummy d = Dummy();
 }
 
 std::string getHangmanPicture(int lives);
 
 void clearConsole();
 
-/*
- * Simple main program that demontrates how access
- * CMake definitions (here the version number) from source code.
- */
 int main() {
     Word w = Word{"kubernetes"};
     int lives = 6;
+
+    clearConsole();
+    printVersionInfo();
+    std::cout << "Press ANY key to Play" << std::endl;
+    getchar();
+    clearConsole();
 
     while (lives >= 0) {
         std::cout << getHangmanPicture(lives);
@@ -127,6 +127,8 @@ std::string getHangmanPicture(int lives) {
                / \      |
                        /|
             ============|
+
+GAME OVER!
 )";
 
         switch (lives) {
