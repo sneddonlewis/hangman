@@ -38,8 +38,6 @@ Hangman        +-------+
                O       |
                        |
                        |
-                       |
-                       |
                       /|
            ============|
 )";
@@ -48,8 +46,6 @@ Hangman        +-------+
 Hangman        +-------+
                |      \|
                O       |
-                       |
-                       |
                        |
                        |
                       /|
@@ -61,8 +57,6 @@ Hangman        +-------+
                |      \|
                O       |
                |       |
-                       |
-                       |
                        |
                       /|
            ============|
@@ -133,6 +127,8 @@ Hangman        +-------+
  * CMake definitions (here the version number) from source code.
  */
 int main() {
+    int lives = 6;
+    std::cout << lives << std::endl;
     auto word = "kubernetes";
     std::vector<std::string> correctGuesses;
 
