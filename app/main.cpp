@@ -128,7 +128,7 @@ Hangman        +-------+
  * CMake definitions (here the version number) from source code.
  */
 int main() {
-    Word w;
+    Word w = Word{"kubernetes"};
     std::cout << w.get() << std::endl;
     int lives = 6;
     std::cout << lives << std::endl;

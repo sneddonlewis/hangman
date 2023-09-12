@@ -1,11 +1,11 @@
 #include "word.h"
 
-Word::Word() {
+Word::Word(const std::string word) : _word{word} {
 
 }
 
 std::string Word::get() {
-    return "kubernetes";
+    return _word;
 }
 
 
