@@ -4,6 +4,10 @@ Word::Word() {
 
 }
 
+std::string Word::get() {
+    return "kubernetes";
+}
+
 
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #include "doctest/doctest.h"
