@@ -4,7 +4,7 @@ Word::Word(const std::string word) : _word{word} {
 
 }
 
-std::string Word::get() {
+std::string Word::get() const {
     return _word;
 }
 

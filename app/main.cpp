@@ -132,21 +132,21 @@ int main() {
     std::cout << w.get() << std::endl;
     int lives = 6;
     std::cout << lives << std::endl;
-    auto word = "kubernetes";
     std::vector<std::string> correctGuesses;
 
-    std::cout << getHangmanPicture(2);
+    while (lives >= 0) {
+        std::cout << getHangmanPicture(lives);
+        std::string input;
+        std::cout << "Guess a letter: ";
+        std::cin >> input;
+        bool isCorrectGuess = w.guessLetter(input);
+        if (!isCorrectGuess) {
+            lives--;
+        }
 
-    std::cout << word << std::endl;
-    std::string input;
-    std::cout << "Guess a letter: ";
-    std::cin >> input;
+        // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
+        std::cout << "\x1B[2J\x1B[H";
+    }
 
-    // check guess, have an incorrectGuesses vec too
-    correctGuesses.push_back(input);
-    std::cout << "Correcto" << std::endl;
-    //std::getline(std::cin, input);
-
-    std::cout << "You entered: " << input << std::endl;
     return 0;
 }
