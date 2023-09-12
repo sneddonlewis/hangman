@@ -31,97 +31,9 @@ void printVersionInfo() {
   //Dummy d = Dummy();
 }
 
-std::string getHangmanPicture(int lives) {
-    auto start =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-                       |
-                       |
-                      /|
-           ============|
-)";
-    auto hangman1 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-                       |
-                       |
-                      /|
-           ============|
-)";
-    auto hangman2 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-               |       |
-                       |
-                      /|
-           ============|
-)";
-    auto hangman3 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-              /|       |
-                       |
-                      /|
-           ============|
-)";
-    auto hangman4 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-              /|       |
-              /        |
-                      /|
-           ============|
-)";
-    auto hangman5 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-              /|       |
-              / \      |
-                      /|
-           ============|
-)";
-    auto hangman6 =
-        R"(
-Hangman        +-------+
-               |      \|
-               O       |
-              /|\      |
-              / \      |
-                      /|
-           ============|
-)";
+std::string getHangmanPicture(int lives);
 
-    switch (lives) {
-        case 6:
-            return start;
-        case 5:
-            return hangman1;
-        case 4:
-            return hangman2;
-        case 3:
-            return hangman3;
-        case 2:
-            return hangman4;
-        case 1:
-            return hangman5;
-        case 0:
-            return hangman6;
-        default:
-            return "";
-    }
-}
+void clearConsole();
 
 /*
  * Simple main program that demontrates how access
@@ -129,10 +41,7 @@ Hangman        +-------+
  */
 int main() {
     Word w = Word{"kubernetes"};
-    std::cout << w.get() << std::endl;
     int lives = 6;
-    std::cout << lives << std::endl;
-    std::vector<std::string> correctGuesses;
 
     while (lives >= 0) {
         std::cout << getHangmanPicture(lives);
@@ -143,10 +52,99 @@ int main() {
         if (!isCorrectGuess) {
             lives--;
         }
-
-        // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
-        std::cout << "\x1B[2J\x1B[H";
+        clearConsole();
     }
 
     return 0;
+}
+
+void clearConsole() {
+    // Unix to clear the screen
+    // CSI[2J clears screen, CSI[H moves the cursor to top-left corner
+    std::cout << "\x1B[2J\x1B[H";
+}
+
+std::string getHangmanPicture(int lives) { 
+    auto start = R"(
+ Hangman        +-------+
+                |      \|
+                        |
+                        |
+                        |
+                       /|
+            ============|
+ )";
+    auto hangman1 =R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+                        |
+                        |
+                       /|
+            ============|
+ )";
+    auto hangman2 =R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+                |       |
+                        |
+                       /|
+            ============|
+ )";
+    auto hangman3 = R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+               /|       |
+                        |
+                       /|
+            ============|
+ )";
+    auto hangman4 = R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+               /|       |
+               /        |
+                       /|
+            ============|
+ )";
+    auto hangman5 = R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+               /|       |
+               / \      |
+                       /|
+            ============|
+ )";
+    auto hangman6 = R"(
+ Hangman        +-------+
+                |      \|
+                O       |
+               /|\      |
+               / \      |
+                       /|
+            ============|
+)";
+
+        switch (lives) {
+            case 6:
+                return start;
+            case 5:
+                return hangman1;
+            case 4:
+                return hangman2;
+            case 3:
+                return hangman3;
+            case 2:
+                return hangman4;
+            case 1:
+                return hangman5;
+            case 0:
+                return hangman6;
+            default:
+                return "";
+        }
 }
