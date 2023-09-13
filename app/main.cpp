@@ -50,14 +50,17 @@ int main() {
     clearConsole();
 
     while (lives >= 0) {
-        clearConsole();
         std::cout << getHangmanPicture(lives);
         std::cout << w.getHidden() << std::endl;
         std::cout << "Guess a letter: ";
         char guess = readChar();
+        clearConsole();
         bool isCorrectGuess = w.guessLetter(guess);
         if (!isCorrectGuess) {
             lives--;
+        }
+        if (w.isComplete()) {
+            std::cout << "WINNER!" << std::endl;
         }
     }
 

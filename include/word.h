@@ -9,6 +9,7 @@ public:
     std::string get() const;
     std::string getHidden();
     bool guessLetter(char letter);
+    bool isComplete();
 
 private:
     std::string _word;
