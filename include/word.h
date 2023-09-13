@@ -7,7 +7,7 @@ public:
     Word(const std::string word);
 
     std::string get() const;
-    bool guessLetter(std::string letter) {
+    bool guessLetter(char letter) {
         std::cout << letter << std::endl;
         return false;
     }

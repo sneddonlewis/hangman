@@ -3,6 +3,8 @@
 // users, this can be left out.
 #include "word.h"
 #include <cstdio>
+#include <ios>
+#include <limits>
 #include <ostream>
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #define DOCTEST_CONFIG_IMPLEMENT
@@ -12,6 +14,8 @@
 #include <iostream>
 #include <vector>
 #include <stdlib.h>
+#include <thread>
+#include <chrono>
 
 #include "exampleConfig.h"
 #include "example.h"
@@ -30,32 +34,40 @@ void printVersionInfo() {
 }
 
 std::string getHangmanPicture(int lives);
-
 void clearConsole();
+char readChar();
 
 int main() {
+    using namespace std::chrono_literals;
+
     Word w = Word{"kubernetes"};
     int lives = 6;
 
     clearConsole();
     printVersionInfo();
     std::cout << "Press ANY key to Play" << std::endl;
-    getchar();
+    readChar();
     clearConsole();
 
     while (lives >= 0) {
+        clearConsole();
         std::cout << getHangmanPicture(lives);
-        std::string input;
         std::cout << "Guess a letter: ";
-        std::cin >> input;
-        bool isCorrectGuess = w.guessLetter(input);
+        char guess = readChar();
+        bool isCorrectGuess = w.guessLetter(guess);
         if (!isCorrectGuess) {
             lives--;
         }
-        clearConsole();
     }
 
     return 0;
+}
+
+char readChar() {
+    char guess;
+    std::cin >> guess;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return guess;
 }
 
 void clearConsole() {
