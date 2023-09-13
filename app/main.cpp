@@ -52,6 +52,7 @@ int main() {
     while (lives >= 0) {
         clearConsole();
         std::cout << getHangmanPicture(lives);
+        std::cout << w.getHidden() << std::endl;
         std::cout << "Guess a letter: ";
         char guess = readChar();
         bool isCorrectGuess = w.guessLetter(guess);
