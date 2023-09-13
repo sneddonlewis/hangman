@@ -7,12 +7,12 @@ public:
     Word(const std::string word);
 
     std::string get() const;
-    bool guessLetter(std::string letter) {
-        std::cout << letter << std::endl;
-        return false;
-    }
+    std::string getHidden();
+    bool guessLetter(char letter);
+    bool isComplete();
 
 private:
     std::string _word;
+    std::string _hidden;
 };
 
