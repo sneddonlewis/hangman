@@ -1,5 +1,5 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![CI](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml/badge.svg?branch=main&event=check_run)](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml)
+[![CI](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://github.com/sneddonlewis/hangman/blob/master/LICENSE)
 
 # Hangman
