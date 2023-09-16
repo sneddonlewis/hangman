@@ -1,4 +1,6 @@
-# Hangman [![CI](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml/badge.svg?branch=main)]
+[![CI](https://github.com/sneddonlewis/hangman/actions/workflows/ci.yml/badge.svg?branch=main)]
+
+# Hangman
 
 CLI hangman game
 
