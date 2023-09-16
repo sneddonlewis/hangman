@@ -1,6 +1,7 @@
 // Executables must have the following defined if the library contains
 // doctest definitions. For builds with this disabled, e.g. code shipped to
 // users, this can be left out.
+#include "engine.h"
 #include "game.h"
 #include "wordFactory.h"
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
@@ -19,8 +20,8 @@ int main() {
     getchar();
 
     WordFactory wordFactory{};
-    Game game = Game{wordFactory};
-    int exitCode = game.start();
+    Engine engine = Engine{wordFactory};
+    int exitCode = engine.start();
 
     return exitCode;
 }

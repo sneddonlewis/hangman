@@ -10,67 +10,53 @@
 #include <limits>
 #include <ostream>
 
-Game::Game(WordFactory wordFactory) : _wordFactory{wordFactory}, _lives{6} {}
+Game::Game(Word word) : _word{word}, _lives{6} {}
 
 std::string getHangmanPicture(int lives);
-Word getWord();
 void clearConsole();
 char readChar();
+bool askToReplay();
 
-int Game::start() {
-    bool shouldReplay = loop(_wordFactory.create());
-    while (shouldReplay) {
-        _lives = 6;
-        shouldReplay = loop(_wordFactory.create());
-    }   
-    return 0;
-}
-
-bool Game::loop(Word word) {
+bool Game::loop() {
     while (_lives >= 0) {
         clearConsole();
         std::cout << getHangmanPicture(_lives);
-        std::cout << word.getHidden() << std::endl;
+        std::cout << _word.getHidden() << std::endl;
         std::cout << "Guess a letter: ";
         char guess = readChar();
-        bool isCorrectGuess = word.guessLetter(guess);
+        bool isCorrectGuess = _word.guessLetter(guess);
         if (!isCorrectGuess) {
             _lives--;
         }
-        if (word.isComplete()) {
+        if (_word.isComplete()) {
             std::cout << "WINNER!" << std::endl;
-            std::cout << "Continue \"y\"? or quit \"q\"" << std::endl;
-            char continueInput = readChar();
-            switch (continueInput) {
-                case 'y':
-                    std::cout << "Ok" << std::endl;
-                    return true;
-                case 'q':
-                    std::cout << "Bye" << std::endl;
-                    return false;
-                default:
-                    std::cout << "Invalid option" << std::endl;
-                    return false;
-            }
+            return askToReplay();
         }
         if (_lives == 0) {
+            clearConsole();
+            std::cout << getHangmanPicture(_lives);
             std::cout << "GAME OVER!" << std::endl;
-            std::cout << "Continue \"y\"? or quit \"q\"" << std::endl;
-            char continueInput = readChar();
-            switch (continueInput) {
-                case 'y':
-                    std::cout << "Ok" << std::endl;
-                    return true;
-                case 'q':
-                    std::cout << "Bye" << std::endl;
-                    return false;
-                default:
-                    std::cout << "Invalid option" << std::endl;
-                    return false;
-            }
+            std::cout << "The answer was: " << _word.get() << std::endl;
+            return askToReplay();
         }
     }
     return false;
+}
+
+bool askToReplay() {
+    std::cout << "Continue \"y\"? or quit \"q\"" << std::endl;
+    char continueInput = readChar();
+    switch (continueInput) {
+        case 'y':
+            std::cout << "Ok" << std::endl;
+            return true;
+        case 'q':
+            std::cout << "Bye" << std::endl;
+            return false;
+        default:
+            std::cout << "Invalid option" << std::endl;
+            return false;
+    }
 }
 
 char readChar() {
