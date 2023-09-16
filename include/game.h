@@ -4,10 +4,9 @@
 
 class Game final {
 public:
-    Game(WordFactory wordFactory);
-    int start();
+    Game(Word word);
+    bool loop();
 private:
-    bool loop(Word word);
-    WordFactory _wordFactory;
+    Word _word;
     int _lives;
 };

@@ -41,6 +41,7 @@ set(SOURCES          # All .cpp files in src/
     src/example.cpp
     src/word.cpp
     src/wordFactory.cpp
+    src/engine.cpp
     src/game.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
