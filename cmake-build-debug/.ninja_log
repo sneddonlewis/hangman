@@ -1,0 +1,13 @@
+# ninja log v6
+2	706	1726766002956010263	CMakeFiles/engine.dir/src/wordFactory.cpp.o	37dade0adb584fda
+4	717	1726766002957628698	CMakeFiles/engine.dir/src/game.cpp.o	3c981f3355a5503c
+7	452	1726766101194904037	CMakeFiles/engine.dir/src/engine.cpp.o	1e1b7c44c7601e61
+2	725	1726766002955462437	CMakeFiles/engine.dir/src/word.cpp.o	2f7b029e7ffbec1a
+1	732	1726766002954847738	CMakeFiles/engine.dir/src/example.cpp.o	5410b4496a2ff1f6
+7	678	1726766376118209434	CMakeFiles/engine.dir/src/engine.cpp.o	4e0530d28a1ac796
+6	685	1726766376117614985	CMakeFiles/engine.dir/src/example.cpp.o	c379c1fe710ce214
+7	690	1726766376117964188	CMakeFiles/engine.dir/src/word.cpp.o	481f74fdf36c09bc
+7	704	1726766376118314391	CMakeFiles/engine.dir/src/game.cpp.o	2ea46b41acd9cf1c
+7	709	1726766376118089436	CMakeFiles/engine.dir/src/wordFactory.cpp.o	b73f23c2055d469d
+7	1372	1726766376118797634	CMakeFiles/main.dir/app/main.cpp.o	3ca7b64c0a809471
+1372	1407	1726766377483108451	main	20982d23d0426df1

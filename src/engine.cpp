@@ -7,8 +7,8 @@ int Engine::start() {
     auto game = Game{_wordFactory.create()};
     bool shouldReplay = game.loop();
     while (shouldReplay) {
-        auto game = Game{_wordFactory.create()};
-        shouldReplay = game.loop();
+        auto mainGame = Game{_wordFactory.create()};
+        shouldReplay = mainGame.loop();
     }   
     return 0;
 }
